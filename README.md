@@ -1,6 +1,6 @@
 # MediaDB
 
-Welcome to **MediaDB**! This is a personal project designed to help you keep track of the movies, series, (and games) i've watched, as well as maintain a watchlist for future viewing.
+Welcome to **MediaDB**! This is a personal project designed to help to keep track of the movies, series, (and games) i've watched, as well as maintain a watchlist for future viewing.
 
 ## Features
 
