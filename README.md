@@ -10,7 +10,7 @@ Welcome to **MediaDB**! This is a personal project designed to help to keep trac
 
 ## Technologies Used
 
-- **HTML**: For structuring the web pages.
+- **HTML/PHP**: For structuring the web pages.
 - **JavaScript**: For dynamic functionality and interactivity.
 - **CSS**: For styling and layout of the application.
 - **SQL Database**: For storing user data and media information, served on an Apache server.
