@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Media Library</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <div id="counter-container">
-        <span id="movie-count"></span>
-        <span id="series-count"></span>
-        <span id="game-count"></span>
-      </div>
-      <input type="text" id="search-bar" placeholder="🔍 Search..." />
-      <button id="add-item-btn">🔰 Add New</button>
-      <button id="watchlist-btn">📚 Watchlist</button>
+        <div class="header-content">
+            <input type="text" id="search-bar" placeholder="🔍 Search..." />
+            <div class="button-container">
+                <button id="add-item-btn">🔰 Add New</button>
+                <button id="watchlist-btn">📚 Watchlist</button>
+            </div>
+        </div>
     </header>
     <div class="media-container">
-       <div class="link-container">
-       </div>
+        <div class="link-container">
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
