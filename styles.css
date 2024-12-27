@@ -1,40 +1,47 @@
 body {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #333;
+  background-color: #222; 
   color: #fff;
 }
 
 header {
-  background-color: #444;
+  background-color: #333; 
   color: #fff;
   padding: 1em;
-  text-align: center;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  position: relative; 
 }
 
 header input[type="text"] {
   width: 50%;
-  height: 2em;
+  height: 2.5em; 
   padding: 0.5em;
   font-size: 1em;
   border: none;
   border-radius: 0.5em;
-  background-color: #555;
+  background-color: #444; 
   color: #fff;
   padding-left: 2em;
 }
 
 header input[type="text"]:focus {
   outline: none;
-  background-color: #666;
+  background-color: #555; 
 }
 
 header button {
+  height: 3.5em; 
   background-color: #4CAF50;
   color: #fff;
   padding: 0.5em 1em;
@@ -42,6 +49,12 @@ header button {
   cursor: pointer;
   margin-left: 1em;
   border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.button-container {
+  display: flex;
+  align-items: center; 
 }
 
 header button:hover {
@@ -57,18 +70,24 @@ header button:hover {
 
 .media-item {
   margin: 1em;
-  width: 300px; 
-  background-color: #444;
+  width: 350px; 
+  background-color: #333; 
   border-radius: 0.5em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   padding: 1em;
+  overflow: hidden;
+  transition: transform 0.2s; 
+}
+
+.media-item:hover {
+  transform: scale(1.05); 
 }
 
 .media-item img {
   width: 100%;
-  height: 250px; 
-  object-fit: cover;
-  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  height: 450px; 
+  object-fit: cover; 
+  border-radius: 0.5em;
   margin-bottom: 15px;
 }
 
@@ -79,31 +98,36 @@ header button:hover {
 .media-item .title {
   font-weight: bold;
   font-size: 1.5em; 
+  color: #fff; 
 }
 
 .add-item-form {
   width: 50%;
   margin: 2em auto;
   padding: 2em;
-  background-color: #444;
+  background-color: #333; 
   border-radius: 0.5em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .add-item-form label {
   display: block;
   margin-bottom: 1em; 
+  color: #fff; 
 }
 
-.add-item-form input[type="text"], .add-item-form input[type="date"], .add-item-form input[type="number"] {
+.add-item-form input[type="text"], 
+.add-item-form input[type="date"], 
+.add-item-form input[type="number"] {
   width: 100%;
   height: 2.5em; 
   padding: 0.5em;
   font-size: 1.2em; 
   border: none;
   border-radius: 0.5em;
-  background-color: #555;
+  background-color: #444; 
   margin-bottom: 1.5em; 
+  color: #fff;
 }
 
 .add-item-form textarea {
@@ -113,8 +137,9 @@ header button:hover {
   font-size: 1.2em; 
   border: none;
   border-radius: 0.5em;
-  background-color: #555;
+  background-color: #444; 
   margin-bottom: 1.5em; 
+  color: #fff;
 }
 
 .add-item-form input[type="submit"] {
@@ -124,10 +149,12 @@ header button:hover {
   padding: 0.5em 1em;
   font-size: 1.2em; 
   cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .add-item-form input[type="submit"]:hover {
-  background-color: #3e8e41;
+  background-color : #3e8e41;
 }
 
 header select {
@@ -142,18 +169,18 @@ header select {
 .link-container {
   margin-top: 10px; 
   text-align: center; 
-  border: rgba(255, 255, 255, 0.05);
+  border: rgba(255, 255, 255, 0.1);
   border-style: solid;
 }
 
 .link-container a {
   margin: 0 10px; 
   text-decoration: none;
-  color: #337ab7; 
+  color: #66b3ff; 
 }
 
 .link-container a:hover {
-  color: #23527c; 
+  color: #4a9edb; 
 }
 
 .currently-watching {
@@ -181,23 +208,14 @@ header select {
 }
 
 #counter-container {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 20px;
   display: flex;
   align-items: center;
-  font-size: 1em;
   color: #999999;
-  border: 1px solid #cccccc; 
-  border-radius: 10px; 
-  padding: 5px; 
-  background-color: #f7f7f7; 
-  height: 30px; 
+  margin-right: 1em; 
 }
 
 #search-bar {
-  margin-left: 20px; /
+  margin-left: 20px; 
 }
 
 #counter-container span {
@@ -217,21 +235,21 @@ header select {
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: #444; 
+  border: 1px solid #555; 
   border-radius: 8px;
   padding: 15px;
   transition: box-shadow 0.3s;
 }
 
 .watchlist-item:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .item-title {
   font-size: 1.5em;
   font-weight: bold;
-  color: #333;
+  color: #fff; 
   margin-right: 10px;
   margin-left: 10px;
   cursor: pointer;
@@ -242,7 +260,7 @@ header select {
 .item-director,
 .item-length {
   font-size: 1em;
-  color: #888;
+  color: #dfdfdf;
   margin: 0 15px;
   text-align: center;
 }
@@ -289,15 +307,15 @@ header select {
 .item-image {
   width: 500px;
   height: auto;
-  border: 2px solid #ccc;
+  border: 2px solid #444; 
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .item-origin-title {
   font-style: italic;
   margin-left: 5px; 
-  color: #333;
+  color: #ddd; 
 }
 
 .spacer {
