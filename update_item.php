@@ -30,6 +30,17 @@ $currentlyWatching = isset($_POST["currentlyWatching"]) ? 1 : 0;
 $length = $_POST['length'];
 $favorite = isset($_POST["favorite"]) ? 1 : 0;
 $watchlist = isset($_POST["watchlist"]) ? 1 : 0;
+$lastEdited = $_POST['lastEdited'];
+$timesWatched = $_POST['timesWatched']; 
+$duration = $_POST['duration'];
+$seasons = $_POST['seasons'];
+$episodesPerSeason = $_POST['episodesPerSeason'];
+
+$timesWatched = $timesWatched === '' ? NULL : $timesWatched;
+$duration = $duration === '' ? NULL : $duration;
+$seasons = $seasons === '' ? NULL : $seasons;
+$episodesPerSeason = $episodesPerSeason === '' ? NULL : $episodesPerSeason;
+
 
 $sql = "UPDATE mediadb SET 
         type = ?,
@@ -43,20 +54,47 @@ $sql = "UPDATE mediadb SET
         currentlyWatching = ?,
         length = ?,
         favorite = ?,
-        watchlist = ?
+        watchlist = ?,
+        timeswatched = ?,
+        lastedited = ?,
+        duration = ?,
+        seasons = ?,
+        episodesperseason = ?
         WHERE id = ?";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssssssi", $type, $title, $originTitle, $coverUrl, $releaseDate, $director, $genre, $notes, $currentlyWatching, $length, $favorite, $watchlist, $itemId);
+
+$stmt->bind_param(
+    "sssssssssssssssssi",
+    $type,
+    $title,
+    $originTitle,
+    $coverUrl,
+    $releaseDate,
+    $director,
+    $genre,
+    $notes,
+    $currentlyWatching,
+    $length,
+    $favorite,
+    $watchlist,
+    $timesWatched,
+    $lastEdited,
+    $duration,
+    $seasons,
+    $episodesPerSeason,
+    $itemId
+);
 
 if ($stmt->execute() === TRUE) {
     echo "Item updated successfully!";
     echo "<script>setTimeout(function(){ window.close(); }, 1000);</script>"; 
 } else {
     echo "Error updating item: " . $conn->error;
-    echo "<script>setTimeout(function(){ window.close(); }, 1000);</script>"; 
+    echo "<script>setTimeout(function(){ window.close(); }, 10000);</script>"; 
 }
 
 $stmt->close();
 $conn->close();
+?>
 ?>
