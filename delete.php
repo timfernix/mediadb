@@ -17,8 +17,12 @@ if (!$conn->real_connect($host, $username, $password, $dbname, $port, NULL, MYSQ
     die("SSL connection failed: " . mysqli_connect_error());
 }
 
-if (isset($_GET['id'])) {
-    $itemId = $_GET['id'];
+function showMessage($message) {
+    echo "<div class='message'>$message</div>";
+    echo "<script>setTimeout(function(){ window.close(); }, 1000);</script>";
+}
+
+function showDeleteForm($itemId) {
     echo "<div class='container'>";
     echo "<h2>Delete Confirmation</h2>";
     echo "<form action='delete.php' method='post'>";
@@ -30,6 +34,11 @@ if (isset($_GET['id'])) {
     echo "</div>";
     echo "</form>";
     echo "</div>";
+}
+
+if (isset($_GET['id'])) {
+    $itemId = $_GET['id'];
+    showDeleteForm($itemId);
 } elseif (isset($_POST['id'])) {
     $itemId = $_POST['id'];
     if (isset($_POST['confirm'])) {
@@ -40,16 +49,13 @@ if (isset($_GET['id'])) {
             $result = $stmt->execute();
 
             if ($result) {
-                echo "<div class='message'>Item deleted successfully!</div>";
-                echo "<script>setTimeout(function(){ window.close(); }, 1000);</script>";
+                showMessage("Item deleted successfully!");
             } else {
-                echo "<div class='message'>Error deleting item: " . $conn->error . "</div>";
-                echo "<script>setTimeout(function(){ window.close(); }, 1000);</script>";
+                showMessage("Error deleting item: " . $conn->error);
             }
             $stmt->close(); 
         } else {
-            echo "<div class='message'>Deletion cancelled.</div>";
-            echo "<script>setTimeout(function(){ window.close(); }, 1000);</script>";
+            showMessage("Deletion cancelled.");
         }
     }
 }
